@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://bebh6sqlyqwa5"]
+
+[ext_resource type="Script" uid="uid://bdrudeifvqan7" path="res://scenes/Player.gd" id="1_oa6x4"]
+[ext_resource type="Texture2D" uid="uid://g57khymbiqse" path="res://assets/characters/player.png" id="2_x6riv"]
+[ext_resource type="Script" uid="uid://b6i3hg5msfalu" path="res://scenes/Player_UI.gd" id="3_qhqgy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e5frl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rv8t"]
+atlas = ExtResource("2_x6riv")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cx5q"]
+atlas = ExtResource("2_x6riv")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1yg1l"]
+atlas = ExtResource("2_x6riv")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_okr8p"]
+atlas = ExtResource("2_x6riv")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28qk0"]
+atlas = ExtResource("2_x6riv")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xr3hv"]
+atlas = ExtResource("2_x6riv")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7q3b6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rv8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cx5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1yg1l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okr8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28qk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xr3hv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Player" type="Node2D" unique_id=1445496578]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1287393333]
+position = Vector2(49.615, 34.14)
+scale = Vector2(3, 3)
+script = ExtResource("1_oa6x4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=851123477]
+shape = SubResource("CapsuleShape2D_e5frl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1059675407]
+texture_filter = 1
+position = Vector2(0, -9)
+sprite_frames = SubResource("SpriteFrames_7q3b6")
+autoplay = "default"
+frame_progress = 0.58869
+
+[node name="Oxygen" type="Control" parent="CharacterBody2D" unique_id=70484299]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -16.538334
+offset_top = -11.38
+offset_right = -16.538334
+offset_bottom = -11.38
+script = ExtResource("3_qhqgy")
+player_path = NodePath("..")
+metadata/_edit_use_anchors_ = true
+
+[node name="Oxygen Meter" type="ProgressBar" parent="CharacterBody2D/Oxygen" unique_id=1306837786]
+layout_mode = 0
+offset_left = -12.0
+offset_top = -26.92
+offset_right = 48.0
+offset_bottom = 0.07999992
+step = 5.0
+value = 100.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Oxygen Warning" type="Label" parent="CharacterBody2D/Oxygen" unique_id=756546811]
+layout_mode = 0
+offset_left = -25.0
+offset_top = 20.0
+offset_right = 60.464996
+offset_bottom = 43.0
