@@ -12,7 +12,7 @@ var drain_rate = 16.0;
 var recovery_rate = 20.0;
 
 #mask variables
-var toggle_mask = true;
+var toggle_mask = false;
 var can_change_mask = true;
 @onready var mask_audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 

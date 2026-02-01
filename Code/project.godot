@@ -15,16 +15,22 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Our Game"
-run/main_scene="uid://bpo277wnyk1kt"
+run/main_scene="uid://h2giafd2yix2"
 config/features=PackedStringArray("4.6", "Mobile")
 
 [autoload]
 
 PhantomCameraManager="*uid://duq6jhf6unyis"
+SpawnManager="*uid://btn4rn8c43wd4"
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
+
+[global_group]
+
+Player=""
+spawn_points=""
 
 [input]
 

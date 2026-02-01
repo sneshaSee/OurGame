@@ -6,6 +6,7 @@ var character_body: CharacterBody2D = null
 
 func _ready() -> void:
 	hide()
+	add_to_group("game_over_ui")
 	
 func _on_retry_pressed() ->  void:
 	get_tree().paused = false;
@@ -17,4 +18,6 @@ func _on_quit_pressed():
 func game_over():
 	show()
 	get_tree().paused = true
+	
+	
 	

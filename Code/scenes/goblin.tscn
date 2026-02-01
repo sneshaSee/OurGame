@@ -1,38 +1,17 @@
 [gd_scene format=3 uid="uid://dnjurmehf3y71"]
 
 [ext_resource type="Script" uid="uid://dc0mrbheajamo" path="res://scenes/GoblinAi.gd" id="1_d1qee"]
-[ext_resource type="Texture2D" uid="uid://cc2vjl8wogjrm" path="res://assets/characters/slime.png" id="2_jid7n"]
+[ext_resource type="Texture2D" uid="uid://41dcvjj4ftok" path="res://assets/characters/Goblin facing straight Frame.png" id="2_q3g0h"]
+[ext_resource type="Texture2D" uid="uid://d238ai8203230" path="res://assets/characters/Goblin facing straight Frame 2.png" id="3_76chb"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i03e2"]
-atlas = ExtResource("2_jid7n")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3d22s"]
-atlas = ExtResource("2_jid7n")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t5jcg"]
-atlas = ExtResource("2_jid7n")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gftg0"]
-atlas = ExtResource("2_jid7n")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_pdjrh"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_g1p1y"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_i03e2")
+"texture": ExtResource("2_q3g0h")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3d22s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t5jcg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gftg0")
+"texture": ExtResource("3_76chb")
 }],
 "loop": true,
 "name": &"default",
@@ -40,21 +19,29 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_st7d3"]
+radius = 5.666667
+height = 18.666668
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fjnr4"]
 radius = 13.0
 
-[node name="Goblin" type="CharacterBody2D" unique_id=191875926]
+[sub_resource type="CircleShape2D" id="CircleShape2D_q3g0h"]
+radius = 16.0
+
+[node name="Goblin" type="CharacterBody2D" unique_id=191875926 groups=["Player"]]
 scale = Vector2(3, 3)
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_d1qee")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1782249851]
-sprite_frames = SubResource("SpriteFrames_pdjrh")
+position = Vector2(4.95, 11.2)
+sprite_frames = SubResource("SpriteFrames_g1p1y")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1930668776]
+position = Vector2(0, 1.685)
+scale = Vector2(0.575, 0.575)
 shape = SubResource("CapsuleShape2D_st7d3")
 
 [node name="VisionArea" type="Area2D" parent="." unique_id=381266996]
@@ -65,6 +52,12 @@ shape = SubResource("CircleShape2D_fjnr4")
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1916786399]
 collision_mask = 5
+
+[node name="CatchArea" type="Area2D" parent="." unique_id=1624270565]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CatchArea" unique_id=59832573]
+shape = SubResource("CircleShape2D_q3g0h")
 
 [connection signal="body_entered" from="VisionArea" to="." method="_on_VisionArea_body_entered"]
 [connection signal="body_exited" from="VisionArea" to="." method="_on_VisionArea_body_exited"]
