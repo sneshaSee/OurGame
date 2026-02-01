@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bkplwqi822tju"]
+
+[ext_resource type="Script" uid="uid://blt7sj68s1j2f" path="res://queen.gd" id="1_e14lb"]
+[ext_resource type="Texture2D" uid="uid://s8tswtsvyhn5" path="res://assets/characters/Goblin Queen.png" id="2_o0ch0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e14lb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_o0ch0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4d0oq"]
+radius = 5.666667
+height = 18.666668
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_burdc"]
+radius = 13.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2xo4u"]
+radius = 16.0
+
+[node name="Queen" type="CharacterBody2D" unique_id=2081000172]
+script = ExtResource("1_e14lb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=780468705]
+position = Vector2(5.4343643, -17.199978)
+scale = Vector2(0.17093308, 0.14294356)
+sprite_frames = SubResource("SpriteFrames_e14lb")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1273339084]
+position = Vector2(0, 1.685)
+scale = Vector2(5.86, 5.86)
+shape = SubResource("CapsuleShape2D_4d0oq")
+
+[node name="VisionArea" type="Area2D" parent="." unique_id=999818684]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea" unique_id=305001152]
+scale = Vector2(9.075, 9.075)
+shape = SubResource("CircleShape2D_burdc")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=619073462]
+collision_mask = 5
+
+[node name="CatchArea" type="Area2D" parent="." unique_id=2097160659]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CatchArea" unique_id=425959984]
+shape = SubResource("CircleShape2D_2xo4u")
+
+[connection signal="body_entered" from="VisionArea" to="." method="_on_VisionArea_body_entered"]
+[connection signal="body_exited" from="VisionArea" to="." method="_on_VisionArea_body_exited"]

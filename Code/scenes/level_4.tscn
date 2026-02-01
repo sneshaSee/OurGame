@@ -108,6 +108,7 @@ position = Vector2(1200, 235.56)
 position = Vector2(616, -168)
 rotation = 1.5707964
 scale = Vector2(1.275, 1.275)
+next_scene_path = "uid://mb3c44m3km0r"
 
 [node name="GameOverUi" parent="." unique_id=1421737818 instance=ExtResource("12_u7ckc")]
 visible = false

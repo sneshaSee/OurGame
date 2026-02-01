@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvg2ocw0w0mhd"
-path="res://.godot/imported/skeleton.png-215cebd399e542f68f7bfaf5eb1266de.ctex"
+uid="uid://c6yq4pgmluxx"
+path="res://.godot/imported/Gavin Jr standing no mask.png-92200ba7f6419285171dc5e751f4977c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/skeleton.png"
-dest_files=["res://.godot/imported/skeleton.png-215cebd399e542f68f7bfaf5eb1266de.ctex"]
+source_file="res://assets/characters/Gavin Jr standing no mask.png"
+dest_files=["res://.godot/imported/Gavin Jr standing no mask.png-92200ba7f6419285171dc5e751f4977c.ctex"]
 
 [params]
 

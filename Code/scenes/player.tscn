@@ -1,62 +1,75 @@
 [gd_scene format=3 uid="uid://bebh6sqlyqwa5"]
 
 [ext_resource type="Script" uid="uid://bdrudeifvqan7" path="res://scenes/Player.gd" id="1_oa6x4"]
-[ext_resource type="Texture2D" uid="uid://g57khymbiqse" path="res://assets/characters/player.png" id="2_x6riv"]
+[ext_resource type="Texture2D" uid="uid://b3w0dgw5b120e" path="res://assets/characters/Gavin jr walking with mask.png" id="2_d2wvv"]
+[ext_resource type="Texture2D" uid="uid://c7nw1srlxrpsm" path="res://assets/characters/Gavin jr standing with mask.png" id="3_3v2ag"]
 [ext_resource type="Script" uid="uid://b6i3hg5msfalu" path="res://scenes/Player_UI.gd" id="3_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://no0kqn0yyi6i" path="res://assets/characters/Gavin Jr putting mask on off.png" id="4_jej6c"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://us5mkrclxwhv" path="res://assets/characters/Gavin Jr walking - no mask.png" id="5_f1ej7"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_fjrip"]
+[ext_resource type="Texture2D" uid="uid://c6yq4pgmluxx" path="res://assets/characters/Gavin Jr standing no mask.png" id="6_oprun"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_smehm"]
 [ext_resource type="AudioStream" uid="uid://crk3tknk4xh23" path="res://assets/sounds/mask.wav" id="7_fjrip"]
+[ext_resource type="Texture2D" uid="uid://bjftb5qqf3hbp" path="res://assets/characters/Oxygen tank.png" id="8_3v2ag"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e5frl"]
 radius = 6.461666
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8rv8t"]
-atlas = ExtResource("2_x6riv")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6cx5q"]
-atlas = ExtResource("2_x6riv")
-region = Rect2(48, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1yg1l"]
-atlas = ExtResource("2_x6riv")
-region = Rect2(96, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_okr8p"]
-atlas = ExtResource("2_x6riv")
-region = Rect2(144, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_28qk0"]
-atlas = ExtResource("2_x6riv")
-region = Rect2(192, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xr3hv"]
-atlas = ExtResource("2_x6riv")
-region = Rect2(240, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7q3b6"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8rv8t")
+"texture": ExtResource("2_d2wvv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6cx5q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1yg1l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_okr8p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_28qk0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xr3hv")
+"texture": ExtResource("3_3v2ag")
 }],
-"loop": true,
+"loop": false,
+"name": &"Mask Walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_jej6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3v2ag")
+}],
+"loop": false,
+"name": &"Put Mask On",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3v2ag")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jej6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_oprun")
+}],
+"loop": false,
+"name": &"Take Mask Off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_f1ej7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_oprun")
+}],
+"loop": false,
+"name": &"Walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_oprun")
+}],
+"loop": false,
 "name": &"default",
 "speed": 5.0
 }]
@@ -77,10 +90,11 @@ shape = SubResource("CapsuleShape2D_e5frl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=79631934]
 texture_filter = 1
-position = Vector2(0, -9)
+position = Vector2(5.4616656, 10.286667)
+scale = Vector2(0.03, 0.03)
 sprite_frames = SubResource("SpriteFrames_7q3b6")
+animation = &"Take Mask Off"
 autoplay = "default"
-frame_progress = 0.58869
 
 [node name="Oxygen" type="Control" parent="." unique_id=1373066361]
 layout_mode = 3
@@ -93,24 +107,28 @@ script = ExtResource("3_qhqgy")
 player_path = NodePath("..")
 metadata/_edit_use_anchors_ = true
 
-[node name="Oxygen Meter" type="ProgressBar" parent="Oxygen" unique_id=1287858538]
-layout_mode = 0
-offset_left = -4.333333
-offset_top = 22.333334
-offset_right = 39.99498
-offset_bottom = 33.07803
-rotation = -1.5707964
-scale = Vector2(0.54, 0.54)
-step = 0.0
-value = 100.0
-show_percentage = false
-
 [node name="Oxygen Warning" type="Label" parent="Oxygen" unique_id=925617105]
 layout_mode = 0
 offset_left = -25.0
 offset_top = 20.0
 offset_right = 60.464996
 offset_bottom = 43.0
+
+[node name="OxygenTank" type="Sprite2D" parent="Oxygen" unique_id=601232693]
+position = Vector2(6, 15.666667)
+scale = Vector2(0.015, 0.015)
+texture = ExtResource("8_3v2ag")
+
+[node name="Oxygen Meter" type="ProgressBar" parent="Oxygen/OxygenTank" unique_id=1287858538]
+offset_left = -186.13127
+offset_top = 153.16364
+offset_right = 1075.7758
+offset_bottom = 557.86536
+rotation = -1.5707964
+scale = Vector2(0.54, 0.54)
+step = 0.0
+value = 100.0
+show_percentage = false
 
 [node name="Camera2D2" type="Camera2D" parent="." unique_id=188141871]
 physics_interpolation_mode = 1

@@ -1,27 +1,28 @@
 [gd_scene format=3 uid="uid://ebsucp2sbp82"]
 
 [ext_resource type="Script" uid="uid://b4tn0f6u16rb0" path="res://scenes/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://dodiiofp75yrs" path="res://assets/characters/Game display background.png" id="2_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://duioe3wsq2mgs" path="res://assets/characters/Game display title.png" id="3_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://c1dmnq5pmj8he" path="res://assets/characters/Game display Continue.png" id="3_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://bstq5y8ilwl83" path="res://assets/characters/Game display Setting.png" id="4_oa1go"]
+[ext_resource type="Texture2D" uid="uid://1dgbev71pv6b" path="res://assets/characters/Game display QUIT.png" id="5_tbmy8"]
 
-[node name="Main Menu" type="Node" unique_id=1650505216]
+[node name="Main Menu" type="CanvasLayer" unique_id=1697202999]
+scale = Vector2(1.66, 1.66)
+transform = Transform2D(1.66, 0, 0, 1.66, 0, 0)
 script = ExtResource("1_l6cm7")
+metadata/_edit_horizontal_guides_ = [121.0]
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=700352323]
-offset_right = 1151.0
-offset_bottom = 651.0
-color = Color(0.01783196, 0.5529948, 0.37481493, 0.39215687)
-
-[node name="Label" type="Label" parent="." unique_id=1737355101]
-texture_filter = 1
-texture_repeat = 1
-offset_left = 123.0
-offset_top = 35.0
-offset_right = 214.0
-offset_bottom = 58.0
-scale = Vector2(2.135, 2.135)
-text = "Game Title"
-uppercase = true
+[node name="TextureRect" type="TextureRect" parent="." unique_id=460922608]
+offset_left = -83.0
+offset_top = -43.0
+offset_right = 3995.5715
+offset_bottom = 2421.2856
+scale = Vector2(0.14, 0.14)
+texture = ExtResource("2_ekxnf")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=758852753]
+texture_filter = 1
 offset_left = 178.61
 offset_top = 103.0
 offset_right = 257.61005
@@ -31,18 +32,45 @@ offset_bottom = 239.0
 layout_mode = 2
 text = "Continue"
 
-[node name="New" type="Button" parent="VBoxContainer" unique_id=859745218]
-layout_mode = 2
-text = "New"
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Continue" unique_id=1180992736]
+layout_mode = 0
+offset_left = -63.549767
+offset_top = -42.156624
+offset_right = 1974.603
+offset_bottom = 2457.8433
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("3_rtw2f")
 
 [node name="Settings" type="Button" parent="VBoxContainer" unique_id=1317503192]
 layout_mode = 2
 text = "Settings"
 
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Settings" unique_id=1040692434]
+layout_mode = 0
+offset_left = -75.597946
+offset_top = -39.807228
+offset_right = 1908.4021
+offset_bottom = 1944.1927
+scale = Vector2(0.095, 0.095)
+texture = ExtResource("4_oa1go")
+
 [node name="Quit" type="Button" parent="VBoxContainer" unique_id=1699232769]
 layout_mode = 2
 text = "Quit"
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1483062692]
-position = Vector2(219, 122)
-zoom = Vector2(2.665, 2.665)
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Quit" unique_id=1976417778]
+layout_mode = 0
+offset_left = -45.47746
+offset_top = -32.638554
+offset_right = 2309.3967
+offset_bottom = 2946.5508
+scale = Vector2(0.055, 0.055)
+texture = ExtResource("5_tbmy8")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1789059606]
+offset_left = 101.807236
+offset_top = -27.710854
+offset_right = 3391.8904
+offset_bottom = 2632.1594
+scale = Vector2(0.065, 0.065)
+texture = ExtResource("3_bqqt6")

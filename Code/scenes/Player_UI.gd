@@ -1,7 +1,7 @@
 extends Control
 
 @export var player_path: NodePath
-@onready var bar: ProgressBar = $"Oxygen Meter"
+@onready var bar: ProgressBar = $"OxygenTank/Oxygen Meter"
 @onready var oxygen_warning: Label = $"../Oxygen/Oxygen Warning"
 
 var player: CharacterBody2D
