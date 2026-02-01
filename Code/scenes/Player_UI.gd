@@ -12,7 +12,7 @@ func _ready() -> void:
 	bar.max_value = player.max_oxygen
 
 # Called every frame. 'de	lta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	bar.value = player.oxygen
 	if (bar.value <= 0.0):
 		oxygen_warning.text = "No Oxygen"

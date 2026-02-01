@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://dnjurmehf3y71"]
+
+[ext_resource type="Script" uid="uid://dc0mrbheajamo" path="res://scenes/GoblinAi.gd" id="1_d1qee"]
+[ext_resource type="Texture2D" uid="uid://cc2vjl8wogjrm" path="res://assets/characters/slime.png" id="2_jid7n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i03e2"]
+atlas = ExtResource("2_jid7n")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3d22s"]
+atlas = ExtResource("2_jid7n")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5jcg"]
+atlas = ExtResource("2_jid7n")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gftg0"]
+atlas = ExtResource("2_jid7n")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pdjrh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i03e2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3d22s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5jcg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gftg0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_st7d3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fjnr4"]
+radius = 13.0
+
+[node name="Goblin" type="CharacterBody2D" unique_id=191875926]
+scale = Vector2(3, 3)
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_d1qee")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1782249851]
+sprite_frames = SubResource("SpriteFrames_pdjrh")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1930668776]
+shape = SubResource("CapsuleShape2D_st7d3")
+
+[node name="VisionArea" type="Area2D" parent="." unique_id=381266996]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea" unique_id=1207713357]
+scale = Vector2(9.075, 9.075)
+shape = SubResource("CircleShape2D_fjnr4")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1916786399]
+collision_mask = 5
+
+[connection signal="body_entered" from="VisionArea" to="." method="_on_VisionArea_body_entered"]
+[connection signal="body_exited" from="VisionArea" to="." method="_on_VisionArea_body_exited"]
